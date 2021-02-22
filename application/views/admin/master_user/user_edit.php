@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="<?= site_url('user/update')?>" method="post">
+            <form action="<?= site_url('user/update')?>" method="post" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputNama">Nama</label>
@@ -58,6 +58,15 @@
                         <input type="text" value="<?= $dataUser[0]->USER_USERS ?>" class="form-control" name="USER_USERS" placeholder="Username" required>
                     </div>
                 </div>
+                <div class="">
+                    <label for="image-source"></label>
+                         <!-- wadah preview -->
+                        <img id="image-preview-edit" src="<?= $dataUser[0]->PATH_TTD ?>" alt="image preview" style="height:200px;width:200px;"/>
+                    <div class="form-group col-md-6">
+                        <input type="file" value="<?= $dataUser[0]->PATH_TTD ?>" name="imageTtd" class="custom-file-input" id="image-source" onchange="previewImage();">
+                        <label class="custom-file-label" for="image-source">Ubah Signature</label>
+                    </div>
+                </div>
                 <!-- <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputPassword">Password</label>
@@ -76,3 +85,20 @@
 
 </div>
 <!-- End of Main Content -->
+
+<script type="text/javascript">
+    //preview sebelum upload
+    function previewImage() {
+        document.getElementById("image-preview-edit").style.display = "block";
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("image-source").files[0]);
+        oFReader.onload = function(oFREvent) {
+            document.getElementById("image-preview-edit").src = oFREvent.target.result;
+        };
+    };
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>

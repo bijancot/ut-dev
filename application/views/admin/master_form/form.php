@@ -11,7 +11,7 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <div class="d-sm-flex align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-warning">Form Table</h6>
+                <h6 class="m-0 font-weight-bold text-warning">Form List</h6>
                 <button class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" data-toggle="modal" data-target="#mdlAdd">
                     <i class="fas fa-plus fa-sm text-white-50"></i>
                     Add
@@ -37,14 +37,14 @@
                                     <tr>
                                         <td>'.$item->NAMA_TABEL.'</td>
                                         <td>'.$item->NO_DOC.'</td>
-                                        <td>'.$item->NAMA_FORM.'k</td>
+                                        <td>'.$item->NAMA_FORM.'</td>
                                         <td>'.$item->SECTION_FORM.'</td>
                                         <td>
                                             <a href="'.site_url('form/edit/'.$item->ID_MAPPING).'" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <!-- Setting flow -->
-                                            <a href="'.site_url('welcome/list_approval').'" class="btn btn-info btn-sm">
+                                            <a href="'.site_url('form/flow/'.$item->ID_MAPPING).'" class="btn btn-info btn-sm">
                                                 <i class="fa fa-cog"></i>
                                             </a>
                                             <button type="button" data-toggle="modal" data-id="'.$item->ID_MAPPING.'" data-name="'.$item->NAMA_FORM.'" data-target="#mdlDelete" class="btn btn-danger btn-sm mdlDelete">

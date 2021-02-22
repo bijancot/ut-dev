@@ -23,9 +23,9 @@
                 <table class="table table-bordered" id="tableForm" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>List Approval</th>
-                            <th>Aksi</th>
+                            <th>Approval</th>
+                            <th>Roles</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,16 +74,39 @@
             <div class="modal-body">
                 <div class="col">
                     <select class="custom-select" required>
-                        <option value="" selected>Divisi</option>
-                        <option>Project Management</option>
-                        <option>General Service</option>
-                        <option>Maintenance Management</option>
+                        <option value="" selected>Role</option>
+                        <option>Head</option>
+                        <option>Section Head</option>                        
+                        <option>Department Head</option>
+                        <option>Division Head</option>
                     </select>
                 </div>
             </div>
+            <div class="modal-body">
+                <div class="col">
+                    <select class="custom-select" required>
+                        <option value="" selected>Approval</option>
+                        <option>APP_1</option>
+                        <option>APP_2</option>
+                        <option>APP_3</option>
+                        <option>APP_4</option>
+                        <option>APP_5</option>
+                        <option>APP_6</option>
+                        <option>APP_7</option>
+                        <option>APP_8</option>
+                        <option>APP_9</option>
+                        <option>APP_10</option>
+                        <option>APP_11</option>
+                        <option>APP_12</option>
+                        <option>APP_13</option>
+                        <option>APP_14</option>
+                        <option>APP_15</option>
+                    </select>
+                </div>                
+            </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-warning">Save Changes</button>
             </div>
         </div>
@@ -103,10 +126,11 @@
             <div class="modal-body">
                 <div class="col">
                     <select class="custom-select" required>
-                        <option value="" selected>Divisi</option>
-                        <option>Project Management</option>
-                        <option>General Service</option>
-                        <option>Maintenance Management</option>
+                        <option value="" selected>Role</option>
+                        <option>Head</option>
+                        <option>Section Head</option>                        
+                        <option>Department Head</option>
+                        <option>Division Head</option>
                     </select>
                 </div>
             </div>
