@@ -1,7 +1,7 @@
 <div class="container min-vh-100 pt-5">
     <div class="row">
         <div class="col-md-4 offset-md-4 col-lg-4 offset-lg-4 align-self-center mt-5">
-            <div class="card" style="border: 0px;">
+            <div class="card">
                 <div class="card-body">
                     <i class="fas fa-user"></i>
                     <img src="<?= base_url('assets/img/logo.png'); ?>" class="rounded mx-auto d-block" width="120">
@@ -16,12 +16,8 @@
                             <label for="inputPassword" class="form-label">Password</label>
                             <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
                         </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="checkIngatSaya">
-                            <label class="form-check-label" for="checkIngatSaya">Remember Me</label>
-                        </div>
                         <div>
-                            <a href="<?= site_url('login') ?>" class="btn btn-warning btn-block" type="button">Login</a>
+                            <a href="<?= site_url('login') ?>" class="btn btn-warning btn-block" type="submit">Login</a>
                         </div>
                     </form>
                 </div>
