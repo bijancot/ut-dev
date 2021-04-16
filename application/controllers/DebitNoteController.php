@@ -85,10 +85,11 @@ class DebitNoteController extends CI_Controller
     public function vDNEdit($id){
     }
 
-    public function store(){    
-        $config['upload_path'] = './uploads/debitnote/fileUploaded/'; 
-        $config['allowed_types'] = 'xls|xlsx|csv';
-        $config['encrypt_name'] = TRUE;
+    public function store(){
+        $fileNameCreate             = time(); 
+        $config['upload_path']      = './uploads/debitnote/fileUploaded/'; 
+        $config['allowed_types']    = 'xls|xlsx|csv';
+        $config['file_name']        = $fileNameCreate;
  
         $this->upload->initialize($config);
         if(!empty($_FILES['FILEDN']['name'])){

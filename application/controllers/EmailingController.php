@@ -13,9 +13,11 @@
             $email['to']        = $debitNote->EMAIL_DEBITNOTE;
             $email['subject']   = 'Menara Astra: Payment Detail';
             $email['message']   = 'Tes';
+            $email['attach']    = $debitNote->PATH_DEBITNOTE;
             $this->send($email);
 
-            $this->DebitNote->update(['ID_DEBITNOTE' => $idDebitNote, 'STAT_DEBITNOTE' => '4']);
+            $date = date('Y-m-d');
+            $this->DebitNote->update(['ID_DEBITNOTE' => $idDebitNote, 'STAT_DEBITNOTE' => '4', 'TGLPUBLISHED_DEBITNOTE' => $date]);
             redirect('debitnote/approved');
         }
 
@@ -32,13 +34,14 @@
         public function paymentProgress($period){
             $date = date('Y-m-d', strtotime('-'.$period.' day'));
             
-            $debitNotes = $this->DebitNote->getAll(['STAT_DEBITNOTE' => '4', 'TGLFAKTUR_DEBITNOTE' => $date]);
+            $debitNotes = $this->DebitNote->getAll(['STAT_DEBITNOTE' => '4', 'TGLPUBLISHED_DEBITNOTE' => $date]);
             if($debitNotes != null){
                 foreach ($debitNotes as $item) {
                     $email['from']      = 'Menara Astra';
                     $email['to']        = $item->EMAIL_DEBITNOTE;
                     $email['subject']   = 'Menara Astra: Payment Reminder';
                     $email['message']   = $this->htmlPaymentProgress($item);
+                    $email['attach']    = $item->PATH_DEBITNOTE;
                     $this->send($email);
                 }
             }
@@ -55,6 +58,7 @@
                     $email['to']        = $item->EMAIL_DEBITNOTE;
                     $email['subject']   = 'Menara Astra: Overdue Payment Confirmation';
                     $email['message']   = $this->htmlPaymentOverdue($item);
+                    $email['attach']    = $item->PATH_DEBITNOTE;
                     $this->send($email);
                 }
             }
@@ -66,8 +70,8 @@
                 'charset'       => 'utf-8',
                 'protocol'      => 'smtp',
                 'smtp_host'     => 'smtp.gmail.com',
-                'smtp_user'     => '', 
-                'smtp_pass'     => '', 
+                'smtp_user'     => 'ilhaja94@gmail.com', 
+                'smtp_pass'     => 'ssri2000+*19gOihJ', 
                 'smtp_crypto'   => 'ssl',
                 'smtp_port'     => 465,
                 'crlf'    => "\r\n",
